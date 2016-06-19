@@ -1,0 +1,8 @@
+name: ncu-weather
+version: 0.1.0
+
+authors:
+  - Community of Networking and Open Source <ncunos@gmail.com>
+  - David Kuo <s50407s@gmail.com>
+
+license: MIT

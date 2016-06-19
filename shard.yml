@@ -6,3 +6,8 @@ authors:
   - David Kuo <s50407s@gmail.com>
 
 license: MIT
+
+dependencies:
+  kemal:
+    github: sdogruyol/kemal
+    version: 0.12.0

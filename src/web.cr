@@ -2,8 +2,20 @@ require "kemal"
 require "./mongo/mongo"
 require "./config"
 
+mongo_client = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}")
+loop do
+  begin
+    mongo_client.server_status
+  rescue e : BSON::BSONError
+    puts "Waiting for MongoDB"
+    sleep 1
+    next
+  end
+  break
+end
+
 $mongo : Mongo::Database
-$mongo = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}").database("ncu_weather")
+$mongo = mongo_client.database("ncu_weather")
 
 def get_last_weather
   # if data = $mongo["weather"].find_one({ "$query" => {} of String => String,  "$orderby" => { "time" => -1 } })

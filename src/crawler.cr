@@ -74,8 +74,20 @@ macro def duration_next_time
   ((Time.now.at_beginning_of_minute + 1.minute) + 30.seconds - Time.now).ticks.remainder(Time::Span::TicksPerMinute).fdiv(Time::Span::TicksPerSecond).ceil
 end
 
+mongo_client = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}")
+loop do
+  begin
+    mongo_client.server_status
+  rescue e : BSON::BSONError
+    puts "Waiting for MongoDB"
+    sleep 1
+    next
+  end
+  break
+end
+
 $mongo : Mongo::Database
-$mongo = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}").database("ncu_weather")
+$mongo = mongo_client.database("ncu_weather")
 
 loop do
   puts Time.now

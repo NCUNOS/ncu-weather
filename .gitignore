@@ -2,3 +2,5 @@
 /libs/
 /.crystal/
 /.shards/
+/build/
+kemal.log

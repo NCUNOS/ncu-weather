@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.css" />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="bg" style="background-image: url('<%= weather_bg[:img] %>')"></div>
+    <div class="main">
+      <section id="main">
+        <div id="location">國立中央大學·臺灣</div>
+        <div id="weather"><%= get_weather_cht_name(weather[:weather]) %></div>
+        <div id="temperature">
+          <span class="temperature"><%= weather[:temperature].trunc.to_i %><!--<span class="float"><%= (weather[:temperature] % 1).to_s[1..-1] %></span>--></span>
+          <span class="unit">°C</span>
+        </div>
+      </section>
+      <section id="infos">
+        <h3>氣象資訊</h3>
+        <ul>
+          <li>氣壓 <em><%= weather[:pressure] %> hPa</em></li>
+          <li>風速 <span class="wind" style="transform: rotate(<%= (weather[:wind_direction] + 270) % 360 %>deg)">➤</span> <em><%= weather[:wind_speed] %> m/s</em></li>
+          <li>溼度 <em><%= weather[:humidity] %> %</em></li>
+          <li>降雨 <em><%= weather[:rain] %> mm/hr</em></li>
+        </ul>
+        <div class="additional">最後更新：<%= weather[:time] %></div>
+      </section>
+      <section id="history">
+        <h3>24 小時內記錄</h3>
+        <div class="ct-chart" id="daily-chart"></div>
+      </section>
+      <footer>
+        <div class="bg_copyright"><a href="<%= weather_bg[:url] %>">&copy; by <%= weather_bg[:author] %> on <span class="flickr_logo"></span></a></div>
+        <div>
+          技術支援·<a href="http://www.nos.ncu.edu.tw" target="_blank">中央大學網路開源社</a><br />
+          資料提供·<a href="http://pblab.atm.ncu.edu.tw" targt="_blank">國立中央大學大氣科學系大氣邊界層暨空氣污染實驗室</a>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.js"></script>
+    <script src="https://raw.githubusercontent.com/gionkunz/chartist-plugin-pointlabels/master/dist/chartist-plugin-pointlabels.min.js"></script>
+    <script>
+      var data = {
+        labels: [<%= daily_aggregate.map { |item| item[:time] }.reverse_each.map { |time| %("#{time.strip}") }.join(", ") %>],
+        series: [
+          [<%= daily_aggregate.map { |item| item[:temperature] }.reverse_each.map { |item| item.nil? ? "NaN" : item.round.to_i.to_s }.join(", ") %>]
+        ]
+      };
+      var options = {
+        axisX: { labelOffset: { x: -15, y: 0 } },
+        axisY: { showLabel: false, showGrid: false },
+        fullWidth: true, high: 40, low: 0,
+        plugins: [ Chartist.plugins.ctPointLabels({ labelClass: 'ct-datalabel' })],
+        showArea: true,
+      };
+      new Chartist.Line('#daily-chart', data, options);
+    </script>
+  </body>
+</html>

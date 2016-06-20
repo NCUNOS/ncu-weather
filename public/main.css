@@ -1,0 +1,200 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'PingFang TC', 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft Jhenghei', sans-serif;
+}
+.bg {
+  position: absolute;
+  filter: blur(5px);
+  top: -5px;
+  right: -5px;
+  bottom: -5px;
+  left: -5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #333;
+}
+.main {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  transition: padding .1s ease-in;
+}
+.main section, footer {
+  margin: .5rem;
+  margin-bottom: 0;
+  padding: .5rem;
+  position: relative;
+  transition: margin .1s ease-in;
+}
+section h3 {
+  border-bottom: 1px solid #fff;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 300;
+  margin: 0 0 .6rem;
+  padding-bottom: .2rem;
+}
+section .additional {
+  border-top: 1px dotted rgba(255, 255, 255, .12);
+  text-align: right;
+  color: rgba(255, 255, 255, .6);
+  font-size: .8em;
+  font-weight: 200;
+  margin-top: .4em;
+  margin-bottom: -.1em;
+  padding-top: .3em;
+}
+section#main {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .54);
+}
+section#main #temperature {
+  font-size: 10rem;
+  font-weight: 100;
+  line-height: .9em;
+  text-align: right;
+}
+section#main #location {
+  position: absolute;
+  bottom: 4rem;
+  font-size: 1.4rem;
+  line-height: 2em;
+}
+section#main #weather {
+  font-size: 3rem;
+  position: absolute;
+  bottom: 0;
+  line-height: 1.7em;
+  margin-left: -.15rem
+}
+section#main #temperature .temperature {
+  position: relative;
+}
+section#main #temperature .unit {
+  font-size: 3rem;
+  font-weight: 200;
+  line-height: 5rem;
+  vertical-align: top;
+  margin-left: -1.05em;
+}
+section#main #temperature .float {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 3rem;
+  font-weight: 200;
+  line-height: 9rem;
+  bottom: 0;
+  position: absolute;
+}
+section#infos, section#history {
+  background: rgba(0, 0, 0, 0.4);
+}
+section#infos .wind {
+  color: #fff;
+  display: inline-block;
+  margin: 0 .25rem;
+  text-align: center;
+  width: 1em;
+  vertical-align: middle;
+}
+section#infos ul {
+  color: rgba(255, 255, 255, .6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6em;
+  max-width: 24rem;
+}
+section#infos li em {
+  color: white;
+  font-style: normal;
+  font-weight: 500;
+  margin-left: 1.9em;
+}
+section#infos .wind + em {
+  margin-left: 0;
+}
+section#history .ct-chart {
+  height: 12rem;
+}
+section#history .ct-line {
+  stroke: rgba(255, 255, 255, .4);
+  stroke-width: 1px;
+}
+section#history .ct-point {
+  stroke: rgba(255, 255, 255, .8);
+  stroke-width: 6px;
+}
+section#history .ct-area {
+  fill: white;
+}
+section#history .ct-grid {
+  stroke: rgba(255, 255, 255, .2);
+}
+section#history .ct-grids,
+section#history .ct-series,
+section#history .ct-labels {
+  transform: translate(-1.1em, 0px);
+}
+section#history .ct-label {
+  color: rgba(255, 255, 255, .8);
+}
+section#history .ct-datalabel {
+  fill: rgba(255, 255, 255, .95);
+  font-size: 1.15rem;
+  font-weight: 200;
+}
+section#history .ct-datalabel:after {
+  content: "°";
+}
+footer {
+  margin-top: .2em;
+  padding: 0;
+  font-size: .9rem;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .54);
+  font-weight: 300;
+}
+footer .bg_copyright {
+  float: right;
+}
+footer a,
+footer a:hover,
+footer a:focus,
+footer a:active,
+footer a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+}
+
+span.flickr_logo {
+  display: inline-block;
+  height: .8em;
+  width: 2.5em;
+  background-image: url(flickr@2x.png);
+  background-size: cover;
+}
+
+@media screen and (min-width: 32em) {
+  section#infos li {
+    display: inline-block;
+    width: 48%;
+  }
+}
+@media screen and (min-width: 60em) {
+  .main {
+    padding-top: 2rem;
+  }
+  .main section, footer {
+    width: 59em;
+    margin: 1rem auto 0 auto;
+  }
+}

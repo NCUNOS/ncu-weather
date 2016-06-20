@@ -76,7 +76,7 @@ macro def duration_next_time
 end
 
 $mongo : Mongo::Database
-$mongo = Mongo::Client.new("mongodb://localhost").database("ncu_weather")
+$mongo = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}").database("ncu_weather")
 
 loop do
   puts Time.now

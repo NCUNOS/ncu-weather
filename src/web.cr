@@ -3,7 +3,7 @@ require "./mongo/mongo"
 require "./config"
 
 $mongo : Mongo::Database
-$mongo = Mongo::Client.new("mongodb://localhost").database("ncu_weather")
+$mongo = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}").database("ncu_weather")
 
 def get_last_weather
   # if data = $mongo["weather"].find_one({ "$query" => {} of String => String,  "$orderby" => { "time" => -1 } })

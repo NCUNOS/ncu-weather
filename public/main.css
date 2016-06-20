@@ -26,6 +26,7 @@ html, body {
   left: 0;
   color: white;
   transition: padding .1s ease-in;
+  -webkit-transition: padding .1s ease-in;
 }
 .main section, footer {
   margin: .5rem;
@@ -72,7 +73,7 @@ section#main #weather {
   position: absolute;
   bottom: 0;
   line-height: 1.7em;
-  margin-left: -.15rem
+  margin-left: -.15em
 }
 section#main #temperature .temperature {
   position: relative;
@@ -182,6 +183,46 @@ span.flickr_logo {
   width: 2.5em;
   background-image: url(flickr@2x.png);
   background-size: cover;
+}
+section#main #location,
+section#main #weather,
+section#main #temperature,
+section#main #temperature .unit {
+  transition: font-size .1s ease, bottom .1s ease, margin .1s ease;
+}
+@media screen and (max-width: 440px) {
+  html, body {
+    font-size: 0.9em;
+  }
+  section#main #location {
+    font-size: 1.2rem;
+    bottom: 3.4rem;
+  }
+  section#main #weather {
+    font-size: 2.6rem;
+    margin-left: -.05em;
+  }
+  footer .bg_copyright {
+    float: none;
+  }
+}
+@media screen and (max-width: 372px) {
+  section#main #temperature {
+    font-size: 8rem;
+  }
+  section#main #temperature .unit {
+    font-size: 3rem;
+    line-height: 4.5rem;
+    margin-left: -.5em;
+  }
+  section#main #location {
+    font-size: 1rem;
+    bottom: 2.3rem;
+  }
+  section#main #weather {
+    font-size: 1.8rem;
+    margin-left: -.05em;
+  }
 }
 
 @media screen and (min-width: 32em) {

@@ -40,7 +40,7 @@
       </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.js"></script>
-    <script src="https://raw.githubusercontent.com/gionkunz/chartist-plugin-pointlabels/master/dist/chartist-plugin-pointlabels.min.js"></script>
+    <script src="chartist-plugin-pointlabels.min.js"></script>
     <script>
       var data = {
         labels: [<%= daily_aggregate.map { |item| item[:time] }.reverse_each.map { |time| %("#{time.strip}") }.join(", ") %>],

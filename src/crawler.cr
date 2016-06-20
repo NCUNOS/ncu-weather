@@ -1,4 +1,3 @@
-require "cron_scheduler"
 require "http/client"
 require "json"
 require "./mongo/mongo"

@@ -16,4 +16,6 @@ RUN crystal build --release -o build/web src/web.cr
 RUN crystal build --release -o build/crawler src/crawler.cr
 RUN chmod +x entrypoint.sh
 
+EXPOSE 80
+
 ENTRYPOINT ["/bin/sh", "entrypoint.sh"]

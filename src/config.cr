@@ -26,9 +26,9 @@ WEATHER_BGS = {
       only_night: false
     },
     {
-      img: "https://c2.staticflickr.com/5/4073/4882535425_a27e76c034_o.jpg",
-      url: "https://www.flickr.com/photos/lincet/4882535425",
-      author: "lincet",
+      img: "https://c5.staticflickr.com/4/3505/3227752124_2286de2324_o.jpg",
+      url: "https://www.flickr.com/photos/weiren/3227752124",
+      author: "wei-ren",
       only_day: false,
       only_night: true
     }
@@ -59,7 +59,6 @@ WEATHER_BGS = {
     },
     {
       img: "https://c2.staticflickr.com/9/8242/8581403033_08762c0b21_k.jpg",
-      # img: "https://c2.staticflickr.com/9/8242/8581403033_8969a2004f_o.jpg",
       url: "https://www.flickr.com/photos/bravesheng/8581403033",
       author: "Vincent Chien",
       only_day: false,
@@ -75,7 +74,7 @@ WEATHER_BGS = {
   ],
   "partly_cloudy" => [
     {
-      img: "https://c5.staticflickr.com/9/8866/18744923316_506d1ea0d0_o.jpg",
+      img: "https://c5.staticflickr.com/9/8866/18744923316_3f122b535d_k.jpg",
       url: "https://www.flickr.com/photos/tsaiian/18744923316",
       author: "tsaiian",
       only_day: true,

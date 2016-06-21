@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimun-scale=1.0, user-scalable=0" />
     <meta name="description" content="專屬中大人的氣象資訊站，你看了嗎？" />
     <meta property="og:site_name" content="中央大學網路開源社" />
     <meta property="og:title" content="即時氣象 —— 國立中央大學·臺灣" />
@@ -14,7 +14,9 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="bg" style="background-image: url('<%= weather_bg[:img] %>')"></div>
+    <div class="bg_outer">
+      <div class="bg" style="background-image: url('<%= weather_bg[:img] %>')"></div>
+    </div>
     <div class="main">
       <section id="main">
         <div id="location">國立中央大學·臺灣</div>

@@ -73,4 +73,8 @@ Inspired by [阿屜報氣象](https://github.com/rschiang/ntu-weather), [Yahoo! 
 
 [filckr logo](public/flickr@2x.png) 為 [Yahoo! Inc.](http://www.yahoo.com) 版權所有。
 
+背景圖片皆從 flickr 上有 CC 授權之圖片取得。
+
+[亞掰](https://www.flickr.com/photos/32655493@N06/)之照片由版權擁有者另行[授權](https://www.facebook.com/david50407/posts/1154650084557318?comment_id=1154681987887461&comment_tracking=%7B%22tn%22%3A%22R2%22%7D)（[截圖](http://i.imgur.com/QhJQcf7.png)）。
+
 圖片等素材以 [CC BY-NC-SA 3.0 TW](http://creativecommons.org/licenses/by-nc-sa/3.0/tw/) 授權。

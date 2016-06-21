@@ -6,6 +6,20 @@ WEATHER_BGS = {
       author: "lin Judy(快樂雲)",
       only_day: false,
       only_night: false
+    },
+    {
+      img: "https://c2.staticflickr.com/9/8785/17094236225_a14446dd89_k.jpg",
+      url: "https://www.flickr.com/photos/32655493@N06/17094236225",
+      author: "亞掰",
+      only_day: false,
+      only_night: false
+    },
+    {
+      img: "https://c7.staticflickr.com/9/8758/17068279926_34261eb9cc_k.jpg",
+      url: "https://www.flickr.com/photos/32655493@N06/17068279926",
+      author: "亞掰",
+      only_day: false,
+      only_night: false
     }
   ],
   "shower" => [
@@ -22,6 +36,27 @@ WEATHER_BGS = {
       img: "https://c7.staticflickr.com/8/7197/6842794862_643ca96161_o.jpg",
       url: "https://www.flickr.com/photos/judy19740108/6842794862",
       author: "lin Judy(快樂雲)",
+      only_day: true,
+      only_night: false
+    },
+    {
+      img: "https://c8.staticflickr.com/9/8630/16661452647_bcb6987ea7_k.jpg",
+      url: "https://www.flickr.com/photos/32655493@N06/16661452647",
+      author: "亞掰",
+      only_day: true,
+      only_night: false
+    },
+    {
+      img: "https://c2.staticflickr.com/8/7651/16248783153_03252dafd0_k.jpg",
+      url: "https://www.flickr.com/photos/32655493@N06/16248783153",
+      author: "亞掰",
+      only_day: true,
+      only_night: false
+    },
+    {
+      img: "https://c2.staticflickr.com/9/8618/16867742161_7764cad673_k.jpg",
+      url: "https://www.flickr.com/photos/32655493@N06/16867742161",
+      author: "亞掰",
       only_day: true,
       only_night: false
     },
@@ -45,6 +80,13 @@ WEATHER_BGS = {
       img: "https://c4.staticflickr.com/8/7046/6988931779_7fe5f7c44a_o.jpg",
       url: "https://www.flickr.com/photos/judy19740108/6988931779",
       author: "lin Judy(快樂雲)",
+      only_day: false,
+      only_night: false
+    },
+    {
+      img: "https://c5.staticflickr.com/8/7653/16246389884_103e27e57d_k.jpg",
+      url: "https://www.flickr.com/photos/32655493@N06/16246389884",
+      author: "亞掰",
       only_day: false,
       only_night: false
     }

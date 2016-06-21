@@ -1,12 +1,18 @@
+require "logger"
 require "http/client"
 require "json"
 require "./mongo/mongo"
 require "./ext"
 
-$cookies = HTTP::Cookies.new # set empty cookies
+$logger = Logger.new(STDOUT)
+$logger.level = (ENV["ENV"]? || "development") == "production" ? Logger::WARN : Logger::DEBUG
+
+$cookies = HTTP::Cookies.new # Empty cookies
 
 def invoke_cookies
+  # Browse homepage to get S/N in cookies
   HTTP::Client.get("http://pblap.atm.ncu.edu.tw/") do |response|
+    # Save S/N into cookie
     $cookies["pblapframeaction"] = response.cookies["pblapframeaction"]
   end
 rescue e : Socket::Error
@@ -76,10 +82,11 @@ end
 
 mongo_client = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}")
 loop do
+  # Wait for MongoDB starts
   begin
     mongo_client.server_status
   rescue e : BSON::BSONError
-    puts "Waiting for MongoDB"
+    $logger.info "Waiting for MongoDB"
     sleep 1
     next
   end
@@ -90,23 +97,15 @@ $mongo : Mongo::Database
 $mongo = mongo_client.database("ncu_weather")
 
 loop do
-  puts Time.now
-  if weather = get_weather
-    $mongo["weather"].insert weather
-    puts weather.to_json
-  else
-    puts "no data."
-    $mongo["weather"].insert({
-      time: Time.now.at_beginning_of_minute,
-      weather: :clear,
-      temperature:    Random.rand(240..320) / 10.0,
-      humidity:       Random.rand(100..300) / 10.0,
-      wind_direction: Random.rand(0...3600) / 10.0,
-      wind_speed:     Random.rand(1..100) / 10.0,
-      pressure:       Random.rand(10000...10120) / 10.0,
-      rain:           Random.rand(0..500) / 10.0,
-      day_or_night: :night
-    })
+  begin
+    if weather = get_weather
+      $mongo["weather"].insert weather
+      $logger.debug weather.to_json
+    else
+      $logger.warn "no data."
+    end
+  rescue e # Capture other errors
+    $logger.error "Exception: #{e.message}"
   end
   sleep duration_next_time
 end

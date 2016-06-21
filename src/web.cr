@@ -1,24 +1,13 @@
+require "logger"
 require "kemal"
+require "json"
 require "./mongo/mongo"
 require "./config"
 
-mongo_client = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}")
-loop do
-  begin
-    mongo_client.server_status
-  rescue e : BSON::BSONError
-    puts "Waiting for MongoDB"
-    sleep 1
-    next
-  end
-  break
-end
-
-$mongo : Mongo::Database
-$mongo = mongo_client.database("ncu_weather")
+$logger = Logger.new(STDOUT)
+$logger.level = (ENV["ENV"]? || "development") == "production" ? Logger::WARN : Logger::DEBUG
 
 def get_last_weather
-  # if data = $mongo["weather"].find_one({ "$query" => {} of String => String,  "$orderby" => { "time" => -1 } })
   if data = $mongo["weather"].find_one({
       "$query" => {} of String => String,
       "$orderby" => {
@@ -38,7 +27,7 @@ def get_last_weather
       error: false
     }
   else
-    DUMMY_WEATHER
+    DUMMY_WEATHER # Need a dummy tuple for ensure only one return type
   end
 end
 
@@ -53,7 +42,7 @@ def get_daily_aggregate
         "$orderby" => {
           "time" => -1
         }
-    }, { "_id" => false, "time" => true, "temperature" => true })
+      }, { "_id" => false, "time" => true, "temperature" => true })
       results << {
         time: time.to_s("%l %p"),
         temperature: data["temperature"].to_s.to_f
@@ -69,10 +58,25 @@ def get_daily_aggregate
   results
 end
 
+mongo_client = Mongo::Client.new("mongodb://#{ENV["MONGODB"]? || "localhost"}")
+loop do
+  begin
+    mongo_client.server_status
+  rescue e : BSON::BSONError
+    $logger.info "Waiting for MongoDB"
+    sleep 1
+    next
+  end
+  break
+end
+
+$mongo : Mongo::Database
+$mongo = mongo_client.database("ncu_weather")
+
 get "/" do
   weather = get_last_weather
   if weather[:error]?
-    weather_bg = DUMMY_BG
+    weather_bg = DUMMY_BG # need a dummy tuple to ensure only one type
   else
     weather_bgs = WEATHER_BGS[weather[:weather]].select do |item|
       weather[:day_or_night] == "night" ? !item[:only_day] : !item[:only_night]

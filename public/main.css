@@ -73,7 +73,7 @@ section#main #weather {
   position: absolute;
   bottom: 0;
   line-height: 1.7em;
-  margin-left: -.15em
+  margin-left: -.05em;
 }
 section#main #temperature .temperature {
   position: relative;
@@ -200,7 +200,6 @@ section#main #temperature .unit {
   }
   section#main #weather {
     font-size: 2.6rem;
-    margin-left: -.05em;
   }
   footer .bg_copyright {
     float: none;
@@ -221,7 +220,6 @@ section#main #temperature .unit {
   }
   section#main #weather {
     font-size: 1.8rem;
-    margin-left: -.05em;
   }
 }
 

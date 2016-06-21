@@ -166,6 +166,8 @@ def get_weather_cht_name(name)
     "多雲時晴"
   when "cloudy"
     "陰天"
+  when "unknown"
+    "無資料"
   else
     ""
   end

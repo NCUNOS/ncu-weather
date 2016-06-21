@@ -2,8 +2,14 @@
 <html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>即時氣象 —— 國立中央大學·臺灣</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <meta name="description" content="專屬中大人的氣象資訊站，你看了嗎？" />
+    <meta property="og:site_name" content="中央大學網路開源社" />
+    <meta property="og:title" content="即時氣象 —— 國立中央大學·臺灣" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://i.imgur.com/scD5u5a.png" />
+    <meta property="og:url" content="http://weather.nos.ncu.edu.tw" />
+    <title><%= get_weather_cht_name(weather[:weather]) %> | 國立中央大學·臺灣</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chartist/0.9.7/chartist.min.css" />
     <link rel="stylesheet" href="main.css" />
   </head>

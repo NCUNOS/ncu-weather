@@ -12,8 +12,8 @@ ADD . /ncu_weather
 WORKDIR /ncu_weather
 
 RUN crystal deps
-RUN crystal build --release -o build/web src/web.cr
-RUN crystal build --release -o build/crawler src/crawler.cr
+RUN crystal compile --release -o build/web src/web.cr
+RUN crystal compile --release -o build/crawler src/crawler.cr
 RUN chmod +x entrypoint.sh
 
 EXPOSE 80

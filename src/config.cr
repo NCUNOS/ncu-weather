@@ -64,6 +64,13 @@ WEATHER_BGS = {
       author: "Vincent Chien",
       only_day: false,
       only_night: true
+    },
+    {
+      img: "https://c1.staticflickr.com/9/8371/8508434408_927e4c2e68_k.jpg",
+      url: "https://www.flickr.com/photos/sntc06/8508434408",
+      author: "Edward Cai",
+      only_day: false,
+      only_night: true
     }
   ],
   "partly_cloudy" => [
@@ -126,9 +133,9 @@ WEATHER_BGS = {
 }
 
 DUMMY_BG = {
-  img: "about:blank",
-  url: "about:blank",
-  author: "",
+  img: "https://c1.staticflickr.com/9/8089/8508433072_c544a3ef60_k.jpg",
+  url: "https://www.flickr.com/photos/sntc06/8508433072",
+  author: "Edward Cai",
   only_day: false,
   only_night: false
 }

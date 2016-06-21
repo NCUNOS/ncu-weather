@@ -2,7 +2,10 @@
 
 由[中央大學網路開源社](http://www.nos.ncu.edu.tw)提供的中大氣象 API。
 
-資料來源：[國立中央大學大氣科學系大氣邊界層暨空氣污染實驗室 (PBLAB)](http://pblap.atm.ncu.edu.tw)
+資料來源：[國立中央大學大氣科學系大氣邊界層暨空氣污染實驗室 (Planetary Boundary Layer & Air Pollution Lab.)](http://pblap.atm.ncu.edu.tw)
+
+Site: http://weather.nos.ncu.edu.tw
+Simple API: http://weather.nos.ncu.edu.tw/api
 
 ## License
 

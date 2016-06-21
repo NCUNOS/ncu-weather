@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   overflow: hidden;
-  font-family: 'PingFang TC', 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft Jhenghei', sans-serif;
+  font-family: 'Roboto', 'PingFang TC', 'Source Han Sans TW', 'Noto Sans TC', 'Microsoft Jhenghei', sans-serif;
 }
 .bg_outer {
   position: absolute;
@@ -70,6 +70,9 @@ section#main #temperature {
   font-weight: 100;
   line-height: .9em;
   text-align: right;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 section#main #location {
   position: absolute;
@@ -89,10 +92,10 @@ section#main #temperature .temperature {
 }
 section#main #temperature .unit {
   font-size: 3rem;
-  font-weight: 200;
-  line-height: 5rem;
+  font-weight: 300;
+  line-height: 4rem;
   vertical-align: top;
-  margin-left: -1.05em;
+  margin-left: -.8em;
 }
 section#main #temperature .float {
   color: rgba(255, 255, 255, 0.8);
@@ -124,7 +127,7 @@ section#infos ul {
 section#infos li em {
   color: white;
   font-style: normal;
-  font-weight: 500;
+  font-weight: 300;
   margin-left: 1.9em;
 }
 section#infos .wind + em {
@@ -221,8 +224,8 @@ section#main #temperature .unit {
   }
   section#main #temperature .unit {
     font-size: 3rem;
-    line-height: 4.5rem;
-    margin-left: -.5em;
+    line-height: 3.3rem;
+    margin-left: -.7em;
   }
   section#main #location {
     font-size: 1rem;

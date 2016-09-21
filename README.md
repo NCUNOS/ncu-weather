@@ -26,7 +26,7 @@ Inspired by [阿屜報氣象](https://github.com/rschiang/ntu-weather), [Yahoo! 
     "wind_speed":     16.3,
     "pressure":       1010.7,
     "rain":           17.6,
-    "day_or_night":   data["day_or_night"].to_s,
+    "day_or_night":   "day",
     "error": false
   }
 }
